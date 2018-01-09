@@ -1,0 +1,627 @@
+var WMG = {
+	artistname : 'Artist Name',
+	MailingList : {
+		EmailListIds : {
+			'United States' : '14074638',
+			'United Kingdom' : '14074638',
+			'France' : '14074638',
+			'Australia' : '14074638',
+			'Germany' : '14074638',
+			'Mexico' : '14074638'
+		},
+		labelListId : '50',
+		MobileKeywordIds : {
+			'United States' : ''
+		}
+	}
+};
+var activeSignUpForm;
+/*Default callback function /*DO NOT DISTURB*/
+
+function signupFormCallback(data) {
+    activeSignUpForm.signupFormCallback(data);
+} (function ($) {
+
+    /* Mailing list plugin default configuration options*/
+    /* overwrite while 'init' the plugin if needed */
+    /* ensure the object properties are matched as below */
+
+    var defaults = {
+        containers: {
+            ajaxLoaderField: '#ajaxLoader',
+            serverErrorMessageField: '#serverError',
+            validationErrorMessageField: '#errorMsg',
+            labelcheckbox: '.secondary-list-values .global-list-checkbox',
+            thankYouMessageField: '#thankyouBlock',
+        },
+
+        exactTargetSignupUrl: "https://signup.wmg.com/register",
+
+        /*Exact target default values - All the hardcoded exact target values list here*/
+        newsLetterConfigValues: [{
+            "newsletterId": ''
+        }],
+
+        /*Validator plugin configurations*/
+        errorLabelContainer: "#errorMsg",
+
+        /*Callback functions*/
+        callBacks: {
+            onLoad: function () {
+                // Extend if needed
+            },
+            onSubmit: function () {
+                // Extend if needed
+            },
+            onSuccess: function () {
+                // Extend if needed
+            }
+        },
+        customPageName: "",
+        validatorSettings: {}
+    };
+
+    $.fn.wmgSignUpForm = function (options) {
+
+        var settings = {};
+
+        var customName = "";
+        if (typeof options !== 'undefined') {
+            if (typeof options.customPageName !== 'undefined') {
+                customName = options.customPageName;
+            }
+        }
+
+        /*omniture parameters*/
+        var omniConfig = {};
+        var validator;
+        var callbackCompleted = 0;
+        var $currentElement;
+        var joinbutton = false;
+        var userEmailId = "";
+
+
+        // Current webform
+        var $this = $(this);
+
+        // current instance of plugin
+        var self = this;
+        var $mainListFields = $this.find(".mlist-field:not(.contest-field)");
+        var $contestListFields = $this.find(".mlist-field.contest-field");
+        var hasTwoLayers;
+        var isInSecondLayer;
+
+        var hideLightbox = function () {
+            var $frontPage = jQuery('body.front #page');
+            jQuery(".splash_overall").fadeOut();
+            $frontPage.css('overflow', 'hidden');
+            $this.parents(".mlist-outer-wrapper").removeClass("lightboxActive");
+        };
+
+        var getListParameters = function (selectorClass) {
+            var listParameters = "";
+            var etValues = {};
+
+            if (selectorClass == ".secondary-list-values" || selectorClass == ".data-source-value") {
+                $currentElement = $this.closest(".mlist-outer-wrapper").find("#thankyouBlock");
+            } else {
+                $currentElement = $this;
+            }
+
+            $currentElement.find(selectorClass).each(function () {
+                $(this).find("input").each(function () {
+                    if ($(this).attr("type") == "checkbox" && $(this).is(':checked') == false) {
+                    } else {
+                        var exactTargetKey = $(this).attr("name");
+                        var exactTargetValue = $(this).val();
+
+                        if (exactTargetKey in etValues) {
+                            etValues[exactTargetKey] += ',' + exactTargetValue;
+                        } else {
+                            etValues[exactTargetKey] = exactTargetValue;
+                        }
+
+                        if (exactTargetKey == "email") {
+                            userEmailId = exactTargetValue;
+                        }
+                    }
+                });
+
+                $(this).find("select").each(function () {
+                    var exactTargetKey = $(this).attr("name");
+                    var exactTargetValue = $(this).val();
+                    etValues[exactTargetKey] = exactTargetValue;
+                });
+            });
+
+            $.each(etValues, function (key, value) {
+                // To check whether coppa cookie is added for this mail
+                if (key === "email") {
+                    //var coppaCookie = CryptoJS.MD5("coppa_lite_" + value).toString();
+                    if (jQuery.cookie('coppa_deny_all')) {
+                        signUpFailure();
+                        return;
+                    }
+                }
+                if (key === "postalcode") {
+                    value = encodeURIComponent(value);
+                }
+                listParameters += '&' + key + "=" + value;
+            });
+
+            return listParameters;
+        };
+        var submitRequest = function () {
+            var returnVal = onSubmit();
+            if (returnVal === false) {
+                return false;
+            }
+
+            activeSignUpForm = self;
+            sendExactTargetRequest();
+        };
+
+        var resetThankYouScreen = function () {
+            $this.parents(".mlist-wrapper").fadeOut(500, function () {
+                $this[0].reset();
+                $this.fadeIn();
+                $this.parents(".mlist-outer-wrapper").find('.mlist-join-wrap').show();
+                $this.parent().find("#thankyouBlock").hide();
+                if ($this.parent().find("#thankyouthankyouBlock .secondary-list-values").length > 0) {
+                    $this.parent().find("input.agree-checkbox").removeAttr('checked');
+                    $this.parent().find("#thankyoublock-innerwrapper").fadeIn();
+                    $this.parent().find(".secondarylist-thankyou").css("display", "none");
+                }
+            });
+        };
+
+        var reloadForm = function () {
+            var currentFocus = jQuery($currentElement[0]).attr("id");
+            var currentBlock = jQuery($currentElement[0]);
+            if ($this.parent().parent().find(".mlist-join-wrap").length > 0) {
+                joinbutton = true;
+            }
+            if (currentFocus == "thankyouBlock") {
+                if (currentBlock.find(".thankyou-message").hasClass("embed")) {
+                    jQuery("#thankyoublock-innerwrapper").fadeOut();
+                } else {
+                    resetThankYouScreen();
+                }
+            } else {
+                $this.find(settings.containers.serverErrorMessageField).fadeOut();
+                $this[0].reset();
+                $this.parent().find(settings.containers.thankYouMessageField).fadeOut(1000, function () {
+                    if (joinbutton) {
+                        $this.parents().find(".mlist-wrapper").fadeOut(500, function () {
+                            $this.fadeIn();
+                            $this.parents().find(".mlist-join-wrap").toggle();
+                        });
+                    } else {
+                        if ($this.find(".agreepopup").length > 0) {
+                            $this.find(".agreepopup").fadeOut();
+                        }
+                        $this.fadeIn();
+                    }
+                });
+            }
+        };
+
+        /* Getting omniture paramaters starts*/
+        var setOmniConfig = function () {
+            omniConfig.artist = digitalData.content.artist;
+            omniConfig.artisthost = digitalData.page.category.primaryCategory;
+        };
+        var getclosestregion = function () {
+            var classArray = $this.closest(".region").attr('class');
+            if (typeof classArray == 'undefined' || classArray == '') {
+                return "content";
+            } else {
+                return $this.closest(".region").attr('class').split(' ')[1];
+            }
+        };
+        var getLabelId = function () {
+            var labelID = $this.parent().find(settings.containers.thankYouMessageField).find(settings.containers.labelcheckbox).val();
+            return labelID;
+        };
+        var omniVarsConfig = function (event, screenNumber) {
+
+            setOmniConfig();
+            var mainListID = getMailingListID();
+            var closestreg = getclosestregion();
+            var artisthost = omniConfig.artisthost;
+            var omniVars = {};
+            var labelid;
+
+            if ($this.parent().find('#thankyouBlock .secondary-list-values').length > 0) {
+                hasTwoLayers = true;
+            }
+
+            if (hasTwoLayers === true) {
+                screenNumber = screenNumber + "/2" + ":";
+            } else {
+                screenNumber = "";
+            }
+
+            switch (event) {
+                case ('signupIntent'):
+                    omniVars.pageName = artisthost + ":" + "Mailing List " + closestreg + " " + screenNumber + mainListID;
+                    break;
+                case ('firstFormSubmit'):
+                    omniVars.pageName = artisthost + ":" + "Mailing List " + closestreg + " " + screenNumber + mainListID + ":Signup Success";
+                    omniVars.events = "event3";
+                    break;
+                case ('noLabelSubscription'):
+                    omniVars.pageName = artisthost + ":" + "Mailing List " + closestreg + " " + screenNumber + mainListID + ":Save Success";
+                    omniVars.events = "event3";
+                    break;
+                case ('labelSubscription'):
+                    labelid = getLabelId();
+                    omniVars.pageName = artisthost + ":" + "Mailing List " + closestreg + " " + screenNumber + mainListID + ":Label List " + labelid + ":Save Success";
+                    omniVars.events = "event3";
+                    break;
+                default:
+                    omniVars.pageName = artisthost + ":" + "Mailing List " + closestreg + " " + screenNumber + mainListID + ":Save Success";
+                    break;
+            }
+            if ($this.parents(".mlist-outer-wrapper").hasClass("customPageName")) {
+                if (event === "noLabelSubscription" || event === "labelSubscription") {
+                    omniVars.pageName = omniConfig.artist + ":" + customName + ":Save Success";
+                } else {
+                    omniVars.pageName = omniConfig.artist + ":" + customName + ":Signup Success";
+                }
+
+            } else if ($this.parents(".mlist-outer-wrapper").hasClass("tkOmniture")) {
+                if (event === "noLabelSubscription" || event === "labelSubscription") {
+                    omniVars.pageName = artisthost + ":" + settings.customPageName + ":Lightbox:Save Success";
+                } else {
+                    omniVars.pageName = artisthost + ":" + settings.customPageName + ":Lightbox:Signup Success";
+                }
+            }
+            s_dtm.t(omniVars);                    
+        };
+        /* Getting omniture paramaters ends*/
+
+        var $thisOuterWrapper = jQuery(this).closest(".mlist-outer-wrapper");
+        var requiredFieldModifier = function () {
+            if ($thisOuterWrapper.find("#country").val() === "" || $thisOuterWrapper.find("#country").val() === undefined) {
+                $thisOuterWrapper.find("#errorLabelContainer2").css("display", "block");
+                $thisOuterWrapper.find('#country').addClass("error");
+                return false;
+            } else {
+                $thisOuterWrapper.find("#errorLabelContainer2").css("display", "none");
+                $thisOuterWrapper.find('#country').removeClass("error");
+                return true;
+            }
+        };
+
+        if ($thisOuterWrapper.hasClass("country-detect")) {
+            $thisOuterWrapper.find("#country").blur(requiredFieldModifier);
+            $thisOuterWrapper.find(".secondFormCloseWrap a").click(function () {
+                $thisOuterWrapper.find("#thankyouBlock").addClass("final-screen");
+                $thisOuterWrapper.find("#thankyoublock-innerwrapper").css("display", "none");
+                $thisOuterWrapper.find(".termsWrapper a").removeClass('showing');
+                $thisOuterWrapper.find(".termsWrapper").css("display", "none");
+                hideLightbox();
+            });
+
+            $thisOuterWrapper.find('.termsWrapper a.terms').click(function () {
+                jQuery(this).toggleClass('showing');
+                jQuery(this).parents('.termsWrapper').find('.termsContent').slideToggle();
+                //$thisOuterWrapper.find("#terms").slideToggle();
+            });
+        }
+
+        $thisOuterWrapper.find("#thankyouBlock .mlist-submit-new").click(function (e) {
+            isInSecondLayer = true;
+            if ($thisOuterWrapper.hasClass("country-detect")) {
+                if (requiredFieldModifier() && !$thisOuterWrapper.find("label.error").is(":visible")) {
+                    e.preventDefault();
+                    var signUpRequestUrlnew = settings.exactTargetSignupUrl;
+                    var signlabelURL = signUpRequestUrlnew + getListParameters(".mlist-field") + getListParameters(".secondary-list-values");
+                    if ($thisOuterWrapper.find(".secondary-list-values input.global-list-checkbox").is(":checked")) {
+                        omniVarsConfig('labelSubscription', 2);
+                        signlabelURL = signlabelURL + getListParameters(".data-source-value") + "&global_optin=TRUE";
+                    } else {
+                        omniVarsConfig('noLabelSubscription', 2);
+                    }
+                    signlabelURL = signlabelURL.replace(signlabelURL[signlabelURL.indexOf("&")], "?");
+                    sendRequest(signlabelURL);
+                }
+            } else if ($thisOuterWrapper.find(".secondary-list-values input.agree-checkbox").is(":checked")) {
+                omniVarsConfig('labelSubscription', 2);
+                var signUpRequestUrlnew = settings.exactTargetSignupUrl;
+                var signlabelURL = signUpRequestUrlnew + getListParameters(".mlist-field") + getListParameters(".secondary-list-values");
+                if ($thisOuterWrapper.find(".secondary-list-values input.global-list-checkbox").is(":checked")) {
+                    signlabelURL = signlabelURL + getListParameters(".data-source-value") + "&global_optin=TRUE";
+                }
+                signlabelURL = signlabelURL.replace(signlabelURL[signlabelURL.indexOf("&")], "?");
+                sendRequest(signlabelURL);
+            } else {
+                omniVarsConfig('noLabelSubscription', 2);
+            }
+        });
+
+        $thisOuterWrapper.find(".mlist-popup").click(function () {
+            $this.validate();
+            if ($this.valid() == true) {
+                $thisOuterWrapper.find(".agreepopup").show();
+            }
+        });
+
+        $thisOuterWrapper.find(".mlist-disagree").click(function () {
+            $thisOuterWrapper.find(".agreepopup").hide();
+        });
+
+        $thisOuterWrapper.find(".mlist-join").click(function () {
+            $thisOuterWrapper.find('.mlist-join-wrap').hide();
+            $thisOuterWrapper.find('.mlist-wrapper').slideToggle();
+            omniVarsConfig('signupIntent', 1);
+        });
+
+        $thisOuterWrapper.find(".mlist-close").click(function () {
+            $thisOuterWrapper.find('.mlist-wrapper').slideToggle();
+            resetThankYouScreen();
+        });
+
+        $thisOuterWrapper.find(".mlist-checks label[for='global-list']").click(function () {
+            var $checkbox = jQuery(this).parent().find('.global-list-checkbox');
+            if (!$checkbox.is(':checked')) {
+                $checkbox.attr('checked', 'checked');
+            } else {
+                $checkbox.removeAttr('checked');
+            }
+        });
+
+        var updateCurrentEmailAddress = function () {
+            if ($this.parents(".mlist-outer-wrapper").find('.emailAddress')) {
+                $this.parents(".mlist-outer-wrapper").find('.emailAddress').text(userEmailId.split('@')[0]);
+            }
+        };
+
+        var signUpSuccess = function (data) {
+            var tempElement = jQuery($currentElement[0]).attr("id");
+            if (tempElement == "thankyouBlock") {
+                if ($currentElement.find(".secondary-list-values").length > 0) {
+                    $currentElement.find("#thankyoublock-innerwrapper").fadeOut(1000, function () {
+                        //For flyout version
+                        if ($this.parents(".mlist-outer-wrapper").hasClass('lightbox')) {
+                            hideLightbox();
+                        }
+                        jQuery("#terms").fadeOut();
+                        $currentElement.find(".secondarylist-thankyou").fadeIn();
+                        $currentElement.addClass("final-screen");
+                    });
+                    setTimeout(reloadForm, 4000);
+                }
+            } else {
+                $this.fadeOut(500, function () {
+                    //lightbox variant
+                    if ($this.parents(".mlist-outer-wrapper").hasClass('lightbox')) {
+                        $this.parents(".mlist-outer-wrapper").addClass("lightboxActive");
+                        var parentWrapper = $this.parents(".mlist-outer-wrapper.lightboxActive");
+                        var parentWrapperWidth = 600;
+                        var parentWrapperHeight = 400;
+                        jQuery('body').append("<div class='splash_overall'></div>");
+                        jQuery('body.front #page').css('overflow', 'visible');
+                        jQuery(".splash_overall").fadeIn();
+                        var win_height = document.documentElement.clientHeight;
+                        var set_height = (win_height - parentWrapperHeight) / 2;
+                        var win_width = document.documentElement.clientWidth;
+                        var set_width = (win_width - parentWrapperWidth) / 2;
+                        parentWrapper.css('top', set_height + 'px');
+                        parentWrapper.css('left', set_width + 'px');
+                        jQuery(".splash_overall").click(function () {
+                            hideLightbox();
+                        });
+                    }
+                    //flyout variant
+                    if (jQuery("#" + tempElement).parents(".mlist-outer-wrapper").hasClass('flyout')) {
+                        $this.parents(".mlist-outer-wrapper").addClass("flyoutActive");
+                    }
+                    $this.find(settings.containers.serverErrorMessageField).fadeOut();
+                    $this.parent().find(settings.containers.thankYouMessageField).fadeIn(500);
+                    $this.parent().find("#thankyoublock-innerwrapper").show();
+                    $this.parent().find("#secondForm").validate();
+                    $this.parent().find('.agree-checkbox').removeAttr('checked');
+                    $this.parent().find(".secondarylist-thankyou").hide();
+                    if ($thisOuterWrapper.hasClass("country-detect")) {
+                        $this.parent().find("#terms").css("display", "none");
+                    }
+                    if ((data.geocountry !== undefined) && (data.geocountry !== "")) {
+                        $this.parent().find("#country").val(data.geocountry);
+                    } else {
+                        $this.parent().find("#country").val("");
+                    }
+                    /*if ((data.geozip !== undefined) && (data.geozip !== "")) {
+                     $this.parent().find("#postalcode").val(data.geozip)
+                     } else {
+                     $this.parent().find("#postalcode").val("");
+                     }*/
+                });
+            }
+        };
+
+        var signUpFailure = function () {
+            $this.find(settings.containers.serverErrorMessageField).fadeTo(1, 500);
+            setTimeout(function () {
+                reloadForm();
+            }, 5000);
+        };
+
+        var sendRequest = function (signUpListUrl) {
+            try {
+                signUpListUrl += "&jsoncallback=?";
+                $.getJSON(signUpListUrl, {
+                    jsonp: "signupFormCallback"
+                });
+            } catch (err) {
+                signUpFailure();
+            }
+        };
+        var getMailingListID = function () {
+            var mainListID;
+            var _country = $this.find("#country").val();
+            var mailingListObj = WMG.MailingList.EmailListIds;
+
+            if (_country in mailingListObj) {
+                mainListID = WMG.MailingList.EmailListIds[_country];
+            } else {
+                mainListID = WMG.MailingList.EmailListIds["United States"];
+            }
+            return mainListID;
+        };
+        var sendExactTargetRequest = function () {
+            var mainlistflag = "off";
+            var mainListID;
+            var signUpRequestUrl = settings.exactTargetSignupUrl;
+
+            var mainlist_signupURL;
+            var contestlist_signupURL;
+            mainListID = getMailingListID();
+
+            $this.find(".mainlist-hidden-options #mainListId").attr("value", mainListID);
+
+            if ($this.find(".agree-checkbox").is(":checked")) {
+                mainlistflag = "on";
+            }
+
+            primary_signupURL = signUpRequestUrl + "?geoip=true" + getListParameters(".mlist-field") + getListParameters(".primary-list-values");
+            if ($this.find(".primary-list-values input.global-list-checkbox").is(":checked")) {
+                primary_signupURL += "&global_optin=TRUE";
+            }
+            if ($this.find(".secondary-list-values").length > 0) {
+                secondary_signupURL = signUpRequestUrl + getListParameters(".mlist-field:not('.contest-field')") + getListParameters(".secondary-list-values");
+                secondary_signupURL.replace(secondary_signupURL[secondary_signupURL.indexOf("&")], "?")
+            }
+
+            updateCurrentEmailAddress();
+
+            if ($this.hasClass("contest-form")) {
+                if ($this.is(".secondary-list-required")) {
+                    sendRequest(primary_signupURL);
+                    sendRequest(secondary_signupURL);
+                } else if ($this.is(".secondary-list-optional")) {
+                    if (mainlistflag == "on") {
+                        sendRequest(secondary_signupURL);
+                        sendRequest(primary_signupURL);
+                    } else {
+                        sendRequest(primary_signupURL);
+                    }
+                } else {
+                    sendRequest(primary_signupURL);
+                }
+            } else {
+                sendRequest(primary_signupURL);
+            }
+        };
+
+        this.signupFormCallback = function (data) {
+            callbackCompleted++;
+
+            if (callbackCompleted == 1) {
+                $this.parent().find(settings.containers.ajaxLoaderField).fadeOut();
+
+                if (data.status == 'success') {
+                    onSuccess();
+                    signUpSuccess(data);
+                } else {// status== 'error'
+                    signUpFailure();
+                }
+            }
+
+            if ((settings.newsLetterConfigValues.length) == callbackCompleted) {
+                callbackCompleted = 0;
+            }
+
+        };
+
+        var init = function (options) {
+            if (options) {
+                settings = $.extend(defaults, options);
+            } else {
+                settings = defaults;
+            }
+
+            var validatorSettings;
+
+            if (Object.keys(settings.validatorSettings).length > 0) {
+                validatorSettings = settings.validatorSettings;
+            } else {
+                validatorSettings = {
+                    rules: {},
+                    messages: {}
+
+                };
+            }
+
+            function getValidatorRulesandMessages($this) {
+                var rulesKey = $this.attr("id");
+                var rulesClass = $this.attr('class');
+                if (rulesClass != undefined) {
+                    var rulesElement = rulesClass.split(/\s+/);
+                    validatorSettings.rules[rulesKey] = {};
+                    validatorSettings.messages[rulesKey] = {};
+                    $.each(rulesElement, function (index, item) {
+                        if (item.match('^m-')) {
+                            item = item.replace('m-', '');
+                            validatorSettings.rules[rulesKey][item] = true;
+                            validatorSettings.messages[rulesKey][item] = "";
+                        }
+                    });
+                }
+            }
+
+
+            $this.find(".mlist-field input").each(function () {
+                if (Object.keys(validatorSettings.rules).length == 0) {
+                    getValidatorRulesandMessages($(this));
+                }
+
+            });
+
+            $this.find(".mlist-field select").each(function () {
+                if (Object.keys(validatorSettings.rules).length == 0) {
+                    getValidatorRulesandMessages($(this));
+                }
+            });
+
+            $.validator.setDefaults({
+                rules: validatorSettings.rules,
+                messages: validatorSettings.messages,
+                submitHandler: function () {
+                    isInSecondLayer = false;
+                    /*On click of form1 sign up button */
+                    omniVarsConfig('firstFormSubmit', 1);
+                    submitRequest();
+                    return false;
+                }
+            });
+
+            validator = $this.validate({
+                onkeyup: false
+            });
+        };
+
+        var onLoad = function () {
+            settings.callBacks.onLoad();
+        };
+
+        var onSubmit = function () {
+            if (typeof settings.callBacks.onSubmit != "undefined") {
+                return settings.callBacks.onSubmit();
+            }
+        };
+
+        var onSuccess = function () {
+            if (typeof settings.callBacks.onSuccess != "undefined") {
+                settings.callBacks.onSuccess();
+            }
+        };
+
+        init(options);
+        return this.each(function () {
+            _this = this;
+        });
+    };
+
+}($jq18));

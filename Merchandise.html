@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Merchanise</title>
+<link href="css/stylesheet.css" rel="stylesheet" type="text/css">
+<script src="java/canvas.js"></script>
+<script src="java/annemarie.js"></script>
+    <script src="jquery/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Nothing+You+Could+Do" rel="stylesheet">
+<link rel="stylesheet" href="css/MediaQuerycss.css">
+    
+  </head>
+ 
+  <body class="backgroundBody"><div id="SocailMerch">
+		<a href="https://www.facebook.com/iamannemarie/" class="fa fa-facebook"></a>
+		<a href="https://twitter.com/AnneMarieIAm?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="fa fa-twitter"></a>
+		<a href="https://www.instagram.com/annemarieiam/?hl=en" class="fa fa-instagram"></a>
+		<a href="https://www.youtube.com/channel/UCBL7ZxVX4GvW4CFiES_-0YA" class="fa fa-youtube"></a>
+		<a href="https://open.spotify.com/artist/1zNqDE7qDGCsyzJwohVaoX#_=_" class="fa fa-spotify"></a>
+	</div>
+	<div class="animateMerch"><p><a href="Index.html"><img src="assests/flamingo.jpg" width = "100" height= "100"></a>Home</p>
+           <div class ="Line"></div>
+            <span>A</span><span>N</span><span>N</span><span>E</span> &nbsp;
+            <span>M</span><span>A</span><span>R</span><span>I</span><span>E</span>
+            <div class ="Line2"></div>
+	</div>
+  <h1> Create your own album cover</h1>
+  <!--<canvas id="my-canvas" width="700" height="600">I am canvas</canvas>-->
+    <div class= "dragimagestitle"><h3>Pick & Drag Your Chosen Album Cover</h3></div> 
+	<canvas id = "canvas" ondrop="drop(event)" ondragover="allowDrop(event)" >
+   </canvas>
+	   
+<!--<--The ondragover event specifies where the dragged data can be dropped.-->
+<div class ="dragimages">
+<img id="drag1" src="assests/Main image/AMimage-Mobile.png" draggable="true" ondragstart="drag(event)" width="300" height="300">
+<br>
+
+<img id="drag2" src="assests/nintchdbpict000207710670.jpg" draggable="true" ondragstart="drag(event)" width="300" height="300">
+<br>
+</div>
+<div class= "dragimage2">
+<img id="drag3" src="assests/Ray+Ban+Rooms+Barclaycard+Presents+British+gZaE9Hzs7lBx.jpg" draggable="true" ondragstart="drag(event)" width="300" height="300">
+<br>
+<img id="drag4" src="assests/anne-marie-m2woman.jpg" draggable="true" ondragstart="drag(event)" width="300" height="300">
+</div>
+
+<!--/*<img id="drag1" src="assests/Main image/AMimage-Mobile.png" draggable="true" ondragstart="drag(event)" width="336" height="500">
+    <img id="drag2" src="assests/Main image/AMimage-Mobile.png" draggable="true" ondragstart="drag(event)" width="336" height="500">*/-->
+<div class = "PersonalisedDrag"> 
+  <h3>  Pick & Drag Your Chosen Stamp</h3> 
+  
+ <img id= "Kiss" src ="assests/checkbox/kiss.png" draggable ="true" ondragstart="drag(event)" width = "100" height = "100" border = "black">
+     <img id= "Signature" src ="assests/checkbox/sig.png" draggable ="true" ondragstart="drag(event)" width = "100" height = "100">
+   <img id= "Stamp" src ="assests/checkbox/stamp.png" draggable ="true" ondragstart="drag(event)" width = "100" height = "100">
+ 
+      </div>  
+        
+      
+ <div> 	 	
+<button id = "SaveButton">Save</button>
+<button id="DeleteButton">Delete</button>
+</div> 
+<div class = "SpotifyPlaylistMerch"><h3>Make a playlist of Anne Maries Songs </h3>
+<iframe src="https://open.spotify.com/embed/artist/1zNqDE7qDGCsyzJwohVaoX" width="460" height="600" frameborder="0" allowtransparency="true"></iframe>
+	  </div>
+<div class = "SpotifyPlaylistMerchMobile"><h3>Make a playlist of Anne Maries Songs </h3>
+<iframe src="https://open.spotify.com/embed/artist/1zNqDE7qDGCsyzJwohVaoX" width="360" height="500" frameborder="0" allowtransparency="true"></iframe>
+  <p> To make a personalised ablum please visit a desktop </p>
+	  </div>
+	  
+<section id= "footer"> 
+	<a href="AnneMarie.html">Anne Marie </a>
+	<img src="assests/heart-3.png" class ="heart"> 
+	<a><space>Copyright © 2017 Atlantic Records UK. All Rights Reserved.</space></a>
+	<img src="assests/heart-3.png" class ="heart">
+	<a href= "http://wminewmedia.com/cookies/" >Cookies Policy</a>
+	<img src="assests/heart-3.png" class ="heart"> 
+	<a href = "http://www.wminewmedia.com/t&c/"> Terms and Conditions </a>
+	<img src="assests/heart-3.png" class ="heart"> 
+	
+	</section>
+
+
+</body>
+</html>

@@ -1,0 +1,1342 @@
+
+@charset "utf-8";
+/* CSS Document */
+/* deeppink  .................. #67fcf4 blue */
+
+
+body {
+	background-color: white; /*body of the whole website*/
+ font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	overflow:scroll;
+}
+.container { /*Containers of 1st picture*/
+  position: relative;
+  width: 70%;
+	background-color: white;
+	margin-left:10%;
+	
+	
+}
+
+
+.image { /*first image*/
+  display: block;
+	margin:5%;
+  width: 90%;
+  height:90%;
+	background-color: white;
+}
+
+.overlay { /*containers of 2nd picture*/
+  position: absolute;
+	margin-top:8%;
+margin-left:5%;
+	width:90%;
+	
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: white;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+	background-color: white;
+	
+}
+
+.ImageOverlay { /*2nd image*/
+  background-color: white;
+	margin-left:50%;
+	margin-top:19%;
+	width:100%;
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.dropdown
+{
+	display:none;
+}
+#socail
+{
+	
+	position:fixed;
+	padding:16px;
+	width:10%;
+	display:block;
+
+}
+#SocailFooter
+{
+	display:none;
+}
+.fa {
+	 width: 65px;
+    padding: 20px;
+	text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+	
+	display:block;
+	  border-radius: 50%;
+	
+}
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #67fcf4 ;
+  color: white;
+	
+}
+.fa-twitter {
+  background: #FFC0CB;
+  color: white;
+	
+}
+.fa-youtube {
+  background-color: deeppink;
+  color: white;
+}
+.fa-instagram {
+  background:#F1FF89;
+  color: white;
+	
+}
+.fa-spotify
+{
+	background:#9E94DF;
+  color: white;
+	
+}
+.StandardDesign {
+	position:static;
+	text-align:center;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+padding: 30px;
+		
+}
+
+.StandardDesign a{
+	text-decoration:none;
+	padding: 30px;
+	color:dimgray;
+	font-size: 16px;
+	/*border-right: medium solid #ff6df7;
+	border-right-style:solid;*/
+}
+	.StandardDesign a:hover {background-color: #67fcf4;}
+
+.background
+{
+ position: absolute;
+	
+}
+
+/*Typography*/
+.animate {
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    font-size: 100px;
+   /* margin: 20px 0 0;*/
+   text-align: center;
+	
+	width:auto;
+	height:auto;
+	
+}
+
+.animateTwo p
+{
+	font-size: 10px;
+	display: block;
+}
+
+.animate span {
+    display: inline-block;
+	position: fixed;
+	
+}
+
+a.repeat {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: none;
+  text-decoration: none;
+  color: blue;
+  padding: 5px 12px;
+ /* border: 1px solid black;*/
+ font-weight: normal;
+  margin: 0 0 0 50px;
+  border-radius: 5px;
+  position: relative;
+  bottom: 15px;
+}
+/*anne marie main page*/
+.animate span:nth-of-type(2) {
+    animation-delay: .05s;
+}
+.animate span:nth-of-type(3) {
+    animation-delay: .1s;
+}
+.animate span:nth-of-type(4) {
+    animation-delay: .15s;
+}
+.animate span:nth-of-type(5) {
+    animation-delay: .2s;
+}
+.animate span:nth-of-type(6) {
+    animation-delay: .25s;
+}
+.animate span:nth-of-type(7) {
+    animation-delay: .3s;
+}
+.animate span:nth-of-type(8) {
+    animation-delay: .35s;
+}
+.animate span:nth-of-type(9) {
+    animation-delay: .4s;
+}
+
+.animate span {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	position: static;
+    color: dimgray;
+    opacity: 20;
+    transform: translate(-150px, -50px) rotate(-180deg) scale(4);
+    animation: revolveScale .9s forwards;
+}
+
+@keyframes revolveScale { /*@keyframes rule, the animation will gradually change from the current style to the new style at certain times.*/
+    60% {
+        transform: translate(20px, 20px) rotate(30deg) scale(.3);
+    }
+
+    100% {
+        transform: translate(0) rotate(0) scale(1);
+        opacity: 6;
+    }
+}
+
+.MainBox  /*blue line*/
+{ margin-left: 80px;
+	height: 3px;
+	width:87%;
+background-color: #67fcf4;
+
+}
+ .MainBox1  /*blue line*/
+{/*perspective-origin: bottom;*/
+
+	margin-left: 80px;
+	height: 3px;
+	width:87%;
+background-color: #67fcf4;
+
+}
+
+.subnews{
+	background-color: white;
+	color:deeppink;
+	font-family: 'Gloria Hallelujah', cursive;
+	text-align: center;
+	font-size:50px;
+	
+}
+
+
+#footer	
+{
+	color: dimgray;
+background-color: white;
+		margin:10px;
+	margin-left: 40%;
+		padding:20px;
+	perspective-origin: bottom;	
+		
+	}
+
+#footer a
+{
+	font-size: 14px;
+	text-decoration:none;
+	border:none;
+	color: dimgray;
+	align-content: center;
+}
+#SocailFooter
+{display:none;}
+
+.heart
+{
+
+	align-content: center;
+	width:2%;
+	height:2%;
+	padding-right: 3px;
+	margin-left: 3px;
+}
+.container2
+{display:none;}
+
+
+
+
+
+/*/////////////////////////////Tour\\\\\\\\\\\\\\\\\\\\\\*/
+
+
+.flamingobackground
+{ position: absolute;
+	background-image:url(../assests/flamingo.jpg) no-repeat;
+	padding-right: 100%;
+	padding-top:-50%;
+	width:40%;
+
+	
+
+}
+p {
+  margin: 0px;
+	padding:3px;
+}
+
+
+.stack {
+	
+	padding-left:85%;
+	width: 0px;
+	position:absolute;
+  text-transform: uppercase;
+  font-size: 15em;
+  line-height: 0.7em;
+  word-wrap: break-word;
+	margin:0px;
+	color:dimgray;
+	
+	
+}
+.tourcontainer
+{ 
+  position:relative; /* Position the background text */
+/*background: green(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: black; /* black text */
+    width: 100%; /* Tour Dates Full width */
+  padding-left:30%; /* Some padding to stop it going over tour */
+	text-align: center;
+	font-size: 25px;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	z-index:4;
+	
+
+}
+.tourcontainer tr:hover {background-color: #b1f9ea;}
+.background
+{
+margin: 0px;
+ position: absolute;
+
+}
+
+#map {
+	position:absolute;
+	margin-top: 2%;
+	margin-left: 30%;
+/*   width: 50%;
+   height: 400px;*/
+   background-color: grey;	
+	z-index: 3;
+	
+ }
+#SocailTour
+{ 
+	width:4%;
+	position:fixed;
+	z-index:2;
+}
+	.animateHoverTour
+{
+	width:8%;
+	align-items: center;
+	margin-left: 45%;
+	padding: 5px;
+	font-size:16px;
+	font-family: 'Gloria Hallelujah', cursive; 
+	-ms-transform: rotate(-7deg); /* IE 9 */
+    -webkit-transform: rotate(-7deg);  /*Safari 3-8 */
+    transform: rotate(-7deg);
+	
+	
+}
+.animateHover1 :hover
+{
+	
+	opacity: 0.7;
+	
+}
+
+
+
+/*////////////////////Contact\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+.Details
+{
+	margin-left: 57%;
+	font-size: 15px;
+	color:dimgray;
+}
+.Details h3
+{
+	
+}
+#contact-page
+{
+	background-color:white;
+	margin:20px;
+	
+}
+#contact
+{ position:sticky;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	display:block;
+	border: 2px solid deeppink;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	border-radius: 4px;
+	margin-right: 100px;
+	float:right;
+	width:500px;
+	padding:30px;
+	
+}
+#name{
+	display:block;
+	margin:10px;
+	align-content: center;
+	
+}
+#mail{
+	display:block;
+	margin:10px;
+}
+#msg{display:block;
+	margin:10px;
+	width: 200px;
+	height: 200px;
+	
+}
+#Favourite{display:block;
+	margin:10px;
+}
+input
+{
+	width: 90%;
+}
+#contact-submit {
+    background-color: deeppink; /* Green */
+    color: white;
+    padding: 15px 32px;
+	margin:20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid grey;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	cursor: pointer;
+	transition: all 0.5s;
+	border-radius: 4px;
+	width:90%;
+}
+#contact-submit:hover {background-color:#F1FF89 ;}
+
+#SocailMedia
+{
+	margin:50px;
+	padding-bottom: 10px;
+}
+#SocailMedia p 
+{
+	display:none;
+}
+.facebook {
+  background: #67fcf4 ;
+  color: white;
+	text-decoration: none;
+	float:left;
+	width: 40%;
+    padding: 30px;
+	text-align: center;
+    font-size: 30px;
+	margin:10px;
+	  border-radius: 1%;
+	margin-left:50px;
+	list-style:none
+}
+.facebook:hover {
+    opacity: 0.7;
+}
+.twitter {
+  background: #FFC0CB;
+  color: white;
+text-decoration: none;
+	float:left;
+	width: 40%;
+    padding: 30px;
+	text-align: center;
+    font-size: 30px;
+	margin:10px;
+	  border-radius: 1%;
+	margin-left:50px;
+	list-style: none;
+}
+.twitter:hover {
+    opacity: 0.7;
+}
+.youtube {
+  background-color: deeppink;
+  color: white;
+	text-decoration: none;
+	float:left;
+	width: 40%;
+    padding: 30px;
+	text-align: center;
+    font-size: 30px;
+	margin:10px;
+	  border-radius: 1%;
+	margin-left:50px;
+	list-style: none;
+}
+.youtube:hover {
+    opacity: 0.7;
+}
+.instagram {
+  background:#F1FF89;
+  color: white;
+	text-decoration: none;
+	float:left;
+	width: 40%;
+    padding: 30px;
+	text-align: center;
+    font-size: 30px;
+	margin:10px;
+	  border-radius: 1%;
+	margin-left:50px;	
+	list-style: none;
+	
+	
+}
+.instagram:hover {
+    opacity: 0.7;
+}
+.spotify
+{
+	background:#9E94DF;
+  color: white;
+	text-decoration: none;
+	float:left;
+	width: 40%;
+    padding: 30px;
+	text-align: center;
+    font-size: 30px;
+	margin:10px;
+	  border-radius: 1%;
+	margin-left:50px;	
+	list-style: none;
+
+}
+.spotify:hover {
+    opacity: 0.7;
+}
+.LineSign
+{
+		width:90%;
+	margin-left:5%;
+	padding:1px;
+	background-color: #FFC0CB;
+}
+.Line2Sign
+{
+	width:70%;
+	margin-left:15%;
+	padding:1px;
+	background-color: #FFC0CB;
+}
+
+#FooterSign	
+{
+background-color: white;
+		margin:10px;
+	margin-top:40%;
+	margin-left: 30%;
+		padding:20px;
+
+	
+		
+	}
+#FooterSign a
+{
+	text-decoration: none;
+	color: dimgray;
+}
+
+/*////////////////////ABOUT\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+body .light {
+  font-family:"Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  margin: 0;
+
+	position: static;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: black;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+	background-color: black;
+  display: none;
+width: 80%;
+	height:20;
+	padding-left: 20%;
+	
+}
+
+.cursor {
+  cursor:pointer
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: black;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.60)
+}
+.Anne{
+		font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+		text-align: center;
+		color:#4A4545;
+	
+	}
+.Anne line
+{ position: static;
+	border-bottom: 1px solid #67fcf4;
+     border-top: 1px solid #67fcf4;
+	padding: 0px;
+	
+}
+.typewriter h1{ /*https://codepen.io/rusjames/pen/uAFhE*/
+	position:static;
+	align-content: center;
+  color: dimgray; 
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  width:85%;
+  animation: type 4s steps(60, end); 
+	margin-left:10%;
+}
+
+.typewriter h1:nth-child(2){
+  animation: type2 8s steps(60, end);
+}
+
+/*p a{
+  color: dimgray;
+  text-decoration: none;
+}*/
+
+/*span{
+  animation: blink 1s infinite;
+}*/
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+@keyframes blink{
+  to{opacity: .0;}
+}
+
+::selection{
+  background: black;
+}
+
+	
+.about h3
+{
+   position:relative;
+	text-align: center;
+	padding:5px;
+}
+.about p 
+{ position:relative;
+	/*padding:12px;*/
+	text-align: center;
+	margin-left:10%;
+	width:80%;
+}
+.album
+{ position:relative;
+	padding-top: 5px;
+	padding-left: 45%;
+	
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+	color:#4A4545;
+	
+}
+.album line {
+border-bottom: 1px solid #67fcf4;
+     border-top: 1px solid #67fcf4;
+	padding: 0px;
+}
+.row
+{padding:5px; /*makes pictures smaller or larger depending on padding */
+background-color:white;
+}
+.box
+{ margin-left: 5px;
+	margin-right:5px;
+	width:99%;
+	height:5px;
+	padding:5px;
+	background-color:lightgrey;
+}
+.box2
+{margin-left: 5px;
+	margin-right:5px;
+	width:99%;
+	height:2px;
+	background-color:white;
+}
+.box3
+{margin-left: 5px;
+	margin-right:5px;
+	width:99%;
+	height:5px;
+	background-color:#67fcf4;
+}
+.box4
+{
+margin-left: 5px;
+	margin-right:5px;
+	width:99%;
+	height:5px;
+	background-color:deeppink;
+}
+#footer1 a
+{
+	
+	font-size: 14px;
+	text-decoration:none;
+	color: dimgray;
+	align-content: center;
+}
+#footer1 
+{
+	perspective-origin: bottom;
+	color: dimgray;
+		float:left;
+background-color: white;
+		margin:10px;
+		padding:10px;
+		width:100%;
+		margin-left: 600px;
+}
+
+.animateTwo {
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    font-size: 100px;
+   /* margin: 20px 0 0;*/
+   text-align: center;
+	width:auto;
+	height:auto;
+	
+}
+
+.animateTwo span {
+    display: inline-block;
+	position: fixed;
+	
+}
+.animateHover1
+{
+	width:8%;
+	align-items: center;
+	margin-left: 45%;
+	padding: 5px;
+	font-size:16px;
+	font-family: 'Gloria Hallelujah', cursive;
+	/*margin-left: 50%;*/
+
+	-ms-transform: rotate(-7deg); /* IE 9 */
+    -webkit-transform: rotate(-7deg); /* Safari 3-8 */
+    transform: rotate(-7deg);
+	
+}
+.animateHover1 :hover
+{
+	
+	opacity: 0.7;
+	
+}
+/*.animateHover{
+  
+    padding: 10px;
+	font-size:16px;
+	font-family: 'Gloria Hallelujah', cursive;
+	margin-left: 50%;
+    display: none;
+	-ms-transform: rotate(-7deg); /* IE 9 */
+    /*-webkit-transform: rotate(-7deg); /* Safari 3-8 */
+    /*transform: rotate(-7deg);*/
+
+    
+.animateHover1:hover + .animateHover {
+    display:inline-block;
+}
+/*a.repeat {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: none;
+  text-decoration: none;
+  color: blue;
+/*  padding: 5px 12px;*/
+/* font-weight: normal;
+  margin: 0 0 0 50px;
+  border-radius: 2px;
+  position: relative;
+  bottom: 2px;*/
+
+/*anne marie main page*/
+.animateTwo span:nth-of-type(2) {
+    animation-delay: .05s;
+}
+.animateTwo span:nth-of-type(3) {
+    animation-delay: .1s;
+}
+.animateTwo span:nth-of-type(4) {
+    animation-delay: .15s;
+}
+.animateTwo span:nth-of-type(5) {
+    animation-delay: .2s;
+}
+.animateTwo span:nth-of-type(6) {
+    animation-delay: .25s;
+}
+.animateTwo span:nth-of-type(7) {
+    animation-delay: .3s;
+}
+.animateTwo span:nth-of-type(8) {
+    animation-delay: .35s;
+}
+.animateTwo span:nth-of-type(9) {
+    animation-delay: .4s;
+}
+
+.animateTwo span {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	
+	position: static;
+    color: dimgray;
+    opacity: 20;
+    transform: translate(-150px, -50px) rotate(-180deg) scale(4);
+    animation: revolveScale .9s forwards;
+}
+
+@keyframes revolveScale { /*@keyframes rule, the animation will gradually change from the current style to the new style at certain times.*/
+    60% {
+        transform: translate(20px, 20px) rotate(30deg) scale(.3);
+    }
+
+    100% {
+        transform: translate(0) rotate(0) scale(1);
+        opacity: 6;
+    }
+}
+.Line2New
+{
+	
+	width:70%;
+	margin-left:15%;
+	padding:3px;
+	background-color: #FFC0CB;
+
+}
+
+
+
+/************************************MERCHANDISE/////////////////////////////*/
+
+.backgroundBody
+{
+margin:5px;
+padding:5px;
+background-color:none;
+}
+.backgroundBody h1
+{
+	color:deeppink;
+	text-align: center;
+	font-size: 50px;
+
+	font-family: 'Gloria Hallelujah', cursive;
+	
+}
+
+.Line
+{
+	width:90%;
+	margin-left:5%;
+	padding:1px;
+	background-color: deeppink;
+}
+.Line2
+{
+	width:70%;
+	margin-left:15%;
+	padding:1px;
+	background-color: deeppink;
+}
+.LineTour
+{
+	width:60%;
+	margin-left:20%;
+	padding:2px;
+	background-color: #F1FF89;
+	margin-bottom: 10px;
+}
+
+#canvas
+{  background: #9E94DF;
+	margin-left: 5px;
+	border: black;
+	width:600px;
+	height:600px;
+}
+
+.draw{
+		display:block;
+		position:absolute;
+	margin:50px;
+		
+		left:45%;
+		transform:translateX(-50%);
+		/*width:550px;*/
+		text-align:center;
+		font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size:12px;
+		background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
+	color:#fff;
+	}
+.dragimages
+{
+	float:right;
+	margin-right: 125px;
+	
+}
+.dragimage2
+
+{margin-left:150px;
+	float:left;
+	display:inline;
+}
+#Kiss
+{
+margin-left: 600px;
+	border: 2px solid grey;
+}
+#Signature
+{
+	border: 2px solid grey;
+	margin:5px;
+}
+#Stamp
+{
+	border: 2px solid grey;
+	padding:5px;
+}
+.dragimagestitle
+{	margin-bottom:20px;
+	margin-left: 250px;
+	text-align: center;
+	width:1000px;
+	height:30px;
+	
+	color: deeppink;
+	background-color: #F1FF89;
+}
+.PersonalisedDrag h3
+{
+margin-left: 250px;
+	text-align: center;
+	width:1000px;
+	height:30px;
+	
+	color: deeppink;
+	background-color: #F1FF89;
+}
+
+
+#SaveButton
+{display:inline-block;
+
+	margin-left:695px;
+	padding:5px;
+	font-size: 12px;
+	width:60px;
+		margin-top:10px;
+    background-color: grey;
+    color: black;
+    border: 2px solid grey;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	cursor: pointer;
+	transition: all 0.5s;
+	border-radius: 4px;
+}
+#SaveButton:hover {background-color:#F1FF89 ;}
+	
+#DeleteButton 
+{display:inline-block;
+	
+	padding:5px;
+	font-size: 12px;
+	width:60px;
+margin-top:10px;
+    background-color: grey;
+    color: black;
+    border: 2px solid grey;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	cursor: pointer;
+	transition: all 0.5s;
+	border-radius: 4px;
+}
+
+#DeleteButton:hover {background-color:deeppink ;}
+
+#SocailMerch
+{ margin:10px;
+	width:5%;
+	height:50%;
+	float:right;
+	position:fixed;
+	display:block;
+	margin-left:93%;
+	padding:20px;
+
+}
+.animateMerch
+{
+
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    font-size: 100px;
+    margin: 20px 0 0;
+   text-align: center;
+	
+	width:auto;
+	height:auto;
+	
+}
+.animateMerch span {
+    display: inline-block;
+	position: fixed;
+	
+}
+.animateMerch span:nth-of-type(2) {
+    animation-delay: .05s;
+}
+.animateMerch span:nth-of-type(3) {
+    animation-delay: .1s;
+}
+.animateMerch span:nth-of-type(4) {
+    animation-delay: .15s;
+}
+.animateMerch span:nth-of-type(5) {
+    animation-delay: .2s;
+}
+.animateMerch span:nth-of-type(6) {
+    animation-delay: .25s;
+}
+.animateMerch span:nth-of-type(7) {
+    animation-delay: .3s;
+}
+.animateMerch span:nth-of-type(8) {
+    animation-delay: .35s;
+}
+.animateMerch span:nth-of-type(9) {
+    animation-delay: .4s;
+}
+@keyframes revolveScale { /*@keyframes rule, the animation will gradually change from the current style to the new style at certain times.*/
+    60% {
+        transform: translate(20px, 20px) rotate(30deg) scale(.3);
+    }
+
+    100% {
+        transform: translate(0) rotate(0) scale(1);
+        opacity: 6;
+    }
+}
+.animateMerch span {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+	position: static;
+    color: dimgray;
+    opacity: 20;
+    transform: translate(-150px, -50px) rotate(-180deg) scale(4);
+    animation: revolveScale .9s forwards;
+}
+.animateMerch p
+{
+	width:8%;
+	align-items: center;
+	margin-left: 45%;
+	padding: 5px;
+	font-size:16px;
+	font-family: 'Gloria Hallelujah', cursive;
+	/*margin-left: 50%;*/
+
+	-ms-transform: rotate(-7deg); /* IE 9 */
+    -webkit-transform: rotate(-7deg); /* Safari 3-8 */
+    transform: rotate(-7deg);
+}
+.animateMerch p :hover
+{
+	
+	opacity: 0.7;
+	
+}
+
+.fa {
+	 width: 65px;
+    padding: 20px;
+	text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+	
+	display:block;
+	  border-radius: 50%;
+	
+}
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #67fcf4 ;
+  color: white;
+	
+}
+.fa-twitter {
+  background: #FFC0CB;
+  color: white;
+	
+}
+.fa-youtube {
+  background-color: deeppink;
+  color: white;
+}
+.fa-instagram {
+  background:#F1FF89;
+  color: white;
+	
+}
+.fa-spotify
+{
+	background:#9E94DF;
+  color: white;
+	
+}
+#SocailMerch 
+{margin-left:0%;
+	padding:0%;
+	}
+.SpotifyPlaylistMerch
+{
+	display:none;
+}
+.SpotifyPlaylistMerchMobile
+{
+	display:none;
+}
+
+/*****************************VIDEOOOOOO****************************************/
+.video
+{
+  width: 100%    !important;
+  height: auto   !important;
+	background-color:black;
+}
+.Title h2
+	{
+		font-family: 'Gloria Hallelujah', cursive;
+margin-left:45%;
+		font-size:30px;
+	}
+	#div1 {
+    width: 400px;
+    height: 600px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+.html5gallery
+{
+	margin-left:25%;
+	margin-right:20%;
+	margin-bottom: 5%;
+	font-family: 'Gloria Hallelujah', cursive;
+}
+.html5gallery h3
+{
+	margin-left:10%;
+}
+.SpotifyPlaylist
+{ 
+	margin-left: 33%;
+	
+	font-family: 'Gloria Hallelujah', cursive;
+
+}
+.SpotifyPlaylist h3
+{ 
+	margin-left: 5%;
+	font-family: 'Gloria Hallelujah', cursive;
+
+}
+.Line2Video
+{
+	width:70%;
+	margin-left:15%;
+	padding:1px;
+	background-color: #67fcf4;
+}
+#SocailMediaQ
+{
+	display:none;
+}
+

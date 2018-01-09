@@ -1,0 +1,52 @@
+(function (d) {
+    function htmlToElement(html) {
+        var div = d.createElement('div');
+        div.innerHTML = html;
+        var r = div.content ? div.content.firstChild : div.firstChild;
+        return r;
+    }
+
+    var au_random_number = Math.floor(Math.random() * 2000000);
+
+    // Brett Eldridge - YS3VXN - Appnexus Only Conversion
+    if (window.au_audience_code == 'YS3VXN' || d.location.href.replace(/-/g, "").toLowerCase().indexOf('bretteldredge') !== -1 ){
+        d.body.appendChild(htmlToElement('<img src="https://secure.adnxs.com/px?id=865591&t=2" width="1" height="1" style="display:none;" >'));
+        d.body.appendChild(htmlToElement('<img src="https://secure.adnxs.com/px?id=865592&t=2" width="1" height="1" style="display:none;" >'));
+    }
+
+    // Liam Gallagher
+    if (d.location.href.toLowerCase().indexOf('wmi.lnk.to/lgaywdc') !== -1 ){
+        d.body.appendChild(htmlToElement('<img src="https://secure.adnxs.com/px?id=911729&t=2" width="1" height="1" />'));
+        d.body.appendChild(htmlToElement('<img src="https://ad.doubleclick.net/ddm/activity/src=8005553;type=invmedia;cat=pva4fjiq;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" alt=""/>'));
+    }
+
+    // David Bowie U9O6X2 - box set landing page conversion (sep. 2017)
+    if (d.location.href.toLowerCase().indexOf("wmi.lnk.to/bowiedc") !== -1 
+            || d.location.href.toLowerCase().indexOf("www.davidbowie.com") !== -1
+            || d.location.href.toLowerCase().indexOf("davidbowie.parlophonestore.co.uk") !== -1
+            || d.location.href.toLowerCase().indexOf("store.davidbowie.com") !== -1
+            ) {
+        d.body.appendChild(htmlToElement('<img src="https://secure.adnxs.com/seg?add=10281270&t=2" width="1" height="1" />'));
+        d.body.appendChild(htmlToElement('<img src="https://ad.doubleclick.net/ddm/activity/src=8005553;type=invmedia;cat=2agxxkue;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" alt=""/>'));
+    }
+
+    // Robert Plant Landing Page Conversion (oct. 2017)
+    if (d.location.href.toLowerCase().indexOf("wmi.lnk.to/carryfiredc") !== -1
+            || d.location.href.toLowerCase().indexOf("robertplant.com") !== -1
+            || (d.location.href.toLowerCase().indexOf("store.nonesuch.com") !== -1
+                && (d.location.href.toLowerCase().indexOf("carry-fire-lp-mp3-print-bundle.html") !== -1
+                    || d.location.href.toLowerCase().indexOf("carry-fire-cd-mp3-print-bundle.html") !== -1)
+                )
+            || (d.location.href.toLowerCase().indexOf("thewarnermusicshop.com") !== -1
+                && d.location.href.toLowerCase().indexOf("robert-plant-carry-fire") !== -1)
+        ) {
+        // landing page pixel
+        d.body.appendChild(htmlToElement('<img src="https://secure.adnxs.com/seg?add=10425130&t=2" width="1" height="1" />'));
+        d.body.appendChild(htmlToElement('<img src="https://ad.doubleclick.net/ddm/activity/src=8005553;type=invmedia;cat=dqbljgoc;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" alt=""/>'));
+        // boomerang pixel
+        d.body.appendChild(htmlToElement('<img src="https://secure.adnxs.com/px?id=914421&t=2" width="1" height="1" />'));
+        d.body.appendChild(htmlToElement('<img src="https://ad.doubleclick.net/ddm/activity/src=8005553;type=invmedia;cat=cud84374;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" alt=""/>'));
+    }
+
+})(document);
+

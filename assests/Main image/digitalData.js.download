@@ -1,0 +1,22 @@
+var digitalData={					
+	settings:{				
+		reportSuites:"wmg,wmggbglobal,wmgiamannemarie.com"			
+	},				
+	page:{				
+		pageInfo:{			
+			pageName:"Anne-Marie:Heavy Single:Landing",		
+			server:"Anne-Marie:Site",		
+			platform:"Blackmesh Custom Page"		
+		},			
+		category:{			
+			primaryCategory:"Anne-Marie:Landing Page",		
+			pageType:"Landing Page:Single Release"		
+		}			
+	},				
+	content:{				
+		artist:"Anne-Marie",			
+		label:"Warner Music International",			
+		sublabel:"Atlantic Records UK"			
+	}				
+}					
+			

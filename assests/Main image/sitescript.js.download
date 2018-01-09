@@ -1,0 +1,111 @@
+var customValidator = {};
+customValidator.customPageName = "Heavy Single:Landing Page";
+customValidator.validatorSettings = {
+	rules : {
+		email : {
+			required : true,
+		},
+		country : {
+			required : true
+		}
+	},
+	messages : {
+		email : {
+			required : "Email address required ",
+			email : "Please enter a valid email address"
+		},
+		country : {
+			required : "Country field is required"
+		}
+	}
+};
+function CallOmniture(text) {
+	var s = s_gi('wmg,wmggbglobal,wmgiamannemarie.com');
+       s_dtm.linkTrackVars = 'prop1,eVar4';
+	s_dtm.prop1='Anne-Marie';
+        s_dtm.eVar4 = 'Anne-Marie';
+
+	s_dtm.tl(this, 'o', text);
+}
+
+jQuery(document).ready(function() {
+	$jq18(".video-link a").on('click', function() {
+		 CallOmniture("Anne-Marie:Heavy Available Now:Landing Page:Lyric Video Click");	
+	$jq18("html, body").animate({
+			scrollTop : 0
+		}, 600);
+	});
+	jQuery('.video-link a').magnificPopup({
+          type: 'iframe',
+          mainClass: 'mfp-fade',
+          removalDelay: 160,
+          preloader: false,
+          fixedContentPos: true
+        });
+	jQuery('.emailSignup .SignUpMlistFooter').click(function(){
+        CallOmniture("Anne-Marie:Heavy Available Now:Landing Page:Mailing List Click");		
+    });
+jQuery('.button-wrapper .buy a').click(function(){
+        CallOmniture("Anne-Marie:Heavy Single:Landing:Buy/Stream Linkfire Click");		
+    });
+   $jq18('#signupFormBasemntUK').wmgSignUpForm(customValidator);	
+	$jq18(".SignUpMlistFooter").on('click', function() {
+		/*setTimeout(function lightboxTrack() {
+			var digitalData = {
+				settings:{					
+		reportSuites:"wmg,wmggbglobal,wmgiamannemarie.com"				
+	},					
+	page:{					
+		pageInfo:{				
+			pageName:"Anne-Marie:Heavy Available Now:Landing",			
+			server:"Anne-Marie:Site",			
+			platform:"Blackmesh Custom Page"			
+		},				
+		category:{				
+			primaryCategory:"Anne-Marie:Landing Page",			
+			pageType:"Landing Page:Album Release"			
+		}				
+	},					
+	content:{					
+		artist:"Anne-Marie",				
+		label:"Warner Music International",				
+		sublabel:"Atlantic Records UK"				
+	}					};
+			_satellite.track("page view");
+		}, 10);*/
+
+		$jq18('.LbWrapper').show();
+		$jq18('.lightbox-wrapper').show();
+		$jq18("html, body").animate({
+			scrollTop : 0
+		}, 600);
+		$jq18('.lightbox-wrapper').show();
+		$jq18(".lightbox-wrapper").toggleClass('open');
+		//jQuery(".logo_wrapper").toggleClass('open');
+	});
+	$jq18(".lightbox-wrapper-close").bind('click', function() {
+		$jq18('.LbWrapper').hide();
+		$jq18('.lightbox-wrapper').hide();
+		$jq18(this).closest(".lightbox-wrapper.open").toggleClass('open');
+		//jQuery(".logo_wrapper").toggleClass('open');
+	});
+	$jq18('.LbWrapper').click(function() {
+		$(this).hide();
+		jQuery(".lightbox-wrapper.open").toggleClass('open');
+		$jq18('.lightbox-wrapper').hide();
+	});
+
+});
+/*jQuery(window).load(function() {
+	fixedFooter();
+});
+
+jQuery(window).resize(function() {
+	fixedFooter();
+});
+function fixedFooter() {
+	if (jQuery(window).height() > jQuery("body").height()) {
+		jQuery('.footerWrapper').css("padding-top", jQuery(window).height() - jQuery("body").height() + "px");
+	}
+} */
+

@@ -1,0 +1,520 @@
+@charset "utf-8";
+
+/* CSS Document */
+/****MAIN*****/
+/*********************************MEDIA FOR TABLET MAIN PAGE **************************/
+
+@media all and (max-width: 480px) /*******************FOR MOBILE**************/ {
+.StandardDesign {
+	display: none;
+}
+.animate span {
+	font-size: 40px;
+	margin: 20px 0 0;
+	background-color: blue;
+}
+.flamingoMain {
+	display: none;
+}
+.dropdown img {
+	display: inline-block;
+	margin-left: 40%;
+	margin-bottom: 0%;
+}
+.dropdown-content {
+	display: inline;
+	position: absolute;
+	background-color: deeppink;
+	opacity: 0.7%;
+	width: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding: 12px 16px;
+	z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+	display: block;
+	width: 135%;
+	height: 300%;
+}
+.dropdown-content a {
+	display: inline-block;
+	color: white;
+	border-bottom: thick;
+	border-bottom-color: white;
+	text-decoration: none;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 20px;
+}
+.subnews h3 {
+	font-size: 18px;
+}
+.MainBox  /*blue line*/ {
+	padding: 0%;
+	margin-left: 4px;
+	height: 3px;
+	width: 10%;
+}
+.MainBox1  /*blue line*/ {
+	padding-left: 0%;
+	margin-left: 100%;
+	height: 3px;
+	width: 10%;
+}
+#FooterMain {
+	margin: 2px;
+	margin-left: 2%;
+	padding: 2px;
+	text-decoration: none;
+}
+#FooterMain a {
+	font-size: 10px;
+	text-decoration: none;
+}
+}
+
+/************ Tour ******/
+
+@media only screen and (Max-width: 600px)  /******************for tablet***************/
+{
+.animate {
+	padding-left: 10%;
+	font-size: 50px;
+}
+.stack {
+	font-size: 8em;
+	padding-top: 42%;
+	padding-left: 75%;
+}
+.tourcontainer {
+	padding-left: 15%;  /*Some padding to stop it going over tour */
+	font-size: 13px;
+}
+#map {
+	margin-left: 14%;
+	width: 60%;
+	height: 40%;
+}
+.flamingobackground {
+	display: none;
+}
+#SocailTour .fa {
+	display: block;
+}
+}
+@media all and (max-width: 480px)/* ***********************for mobile**************************/ 
+{
+.stack {
+	font-size: 5em;
+	padding-top: 50%;
+	padding-left: 80%;
+}
+.flamingobackground {
+	display: none;
+}
+#map {
+	margin-left: 10%;
+	width: 70%;
+	height: 40%;
+}
+.tourcontainer {
+	padding-left: 10%;  /*Some padding to stop it going over tour */
+	font-size: 13px;
+}
+#SocailTour .fa {
+	width: 45px;
+	padding: 10px;
+}
+}
+
+/************ about *******/
+@media only screen and (Max-width: 600px) {
+.animateTwo span {
+	font-size: 50px;
+	margin: 20px 0 0;
+}
+.animateTwo {
+	margin-left: 30%;
+	margin-top: 1%;
+}
+.Line2New {
+	margin-left: 20%;
+}
+.animateHover1 {
+	margin-left: 40%;
+}
+#SocailTour {
+	position: fixed;
+	display: block;
+	width: 10%;
+	height: 1%;
+}
+/********NOT WORKING********/
+.typewriter h1 { /*https://codepen.io/rusjames/pen/uAFhE*/
+	color: dimgray;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 20px;
+	width: 20%;
+	animation: type 4s steps(60, end);
+	margin-left: 10%;
+}
+.typewriter h1:nth-child(2) {
+	animation: type2 8s steps(60, end);
+}
+}
+
+@media all and (max-width: 480px) {
+.animateTwo span {
+	font-size: 50px;
+	margin: 20px 0 0;
+}
+.animateTwo {
+	margin-left: 30%;
+	margin-top: 1%;
+}
+.typewriter h1 {
+	font-size: 25px;
+}
+.animateHover1 {
+	margin-left: 35%;
+}
+#SocailTour {
+	position: fixed;
+	display: block;
+	width: 10%;
+	height: 1%;
+}
+#SocailTour .fa {
+	display: block;
+}
+.typewriter h1 { /*https://codepen.io/rusjames/pen/uAFhE*/
+	position: static;
+	align-content: center;
+	color: dimgray;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 80px;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 85%;
+	animation: type 4s steps(60, end);
+	margin-left: 10%;
+}
+.typewriter h1:nth-child(2) {
+	animation: type2 8s steps(60, end);
+}
+}
+
+/*********** Merch ******/
+
+@media only screen and (Max-width: 600px) {
+.dragimages {
+	display: none;
+}
+.dragimagestitle {
+	display: none;
+}
+.dragimage2 {
+	display: none;
+}
+.PersonalisedDrag {
+	display: none;
+}
+#SaveButton {
+	display: none;
+}
+#DeleteButton {
+	display: none;
+}
+#canvas {
+	display: none;
+}
+h1 {
+	display: none;
+}
+.SpotifyPlaylistMerch {
+	display: block;
+	font-family: 'Gloria Hallelujah', cursive;
+	padding-left: 9%;
+}
+.SpotifyPlaylistMerch h3 {
+	margin-left: 10%;
+}
+#SocailMerch {
+	margin: 5px;
+	width: 4%;
+	height: 50%;
+	position: fixed;
+	display: block;
+	padding: 5px;
+}
+.animateMerch {
+	font-size: 60px;
+	margin: 20px 0 0;
+}
+.Line {
+	margin-left: 18%;
+	width: 70%;
+}
+.Line2 {
+	margin-left: 18%;
+}
+.SpotifyPlaylistMerchMobile {
+	display: none;
+}
+#footer {
+	margin: 1px;
+	margin-left: 2%;
+}
+#footer a {
+	font-size: 10px;
+}
+}
+
+@media all and (max-width: 480px) {
+.animateMerch span {
+	font-size: 40px;
+	margin: 20px 0 0;
+}
+.SpotifyPlaylistMerchMobile {
+	display: block;
+	font-family: 'Gloria Hallelujah', cursive;
+	padding-left: 12%;
+}
+.SpotifyPlaylistMerchMobile h3 {
+	margin-left: 10%;
+}
+.SpotifyPlaylistMerch {
+	display: none;
+}
+#SocailMerch {
+	margin: 5px;
+	width: 3%;
+	height: 50%;
+	position: fixed;
+	display: block;
+	padding: 5px;
+}
+.animateMerch {
+	font-size: 60px;
+	margin: 20px 0 0;
+}
+.Line {
+	margin-left: 18%;
+	width: 70%;
+}
+.Line2 {
+	margin-left: 18%;
+}
+#footer a {
+	font-size: 6px;
+	display: inline;
+}
+}
+
+/*
+*********** Videos ******/
+@media all and (max-width: 600px) {
+.Title h2 {
+	background-color: aqua;
+}
+#socail {
+	display: none;
+}
+#SocailMediaQ {
+	display: list-item;
+	width: 10%;
+	height: 20%;
+	position: fixed;
+}
+Line2New {
+	margin-left: 20%;
+}
+.Line2Video {
+	margin-left: 20%;
+}
+.animateTwo {
+	margin-left: 10%;
+	font-size: 50px;
+}
+.SpotifyPlaylist {
+	margin-left: 15%;
+}
+.html5gallery img {
+	margin: 5%;
+	width: 300px;
+	height: 300px;
+}
+}
+
+@media all and (max-width: 480px) /*DONE*/ {
+.Title h2 {
+	background-color: red;
+	font-family: 'Gloria Hallelujah', cursive;
+	margin-left: 45%;
+	font-size: 20px;
+}
+#socail {
+	display: none;
+}
+#SocailMediaQ {
+	display: list-item;
+	width: 10%;
+	height: 20%;
+	position: fixed;
+}
+.Line2New {
+	margin-left: 20%;
+}
+.Line2Video {
+	margin-left: 20%;
+}
+.animateTwo {
+	margin-left: 10%;
+	font-size: 50px;
+}
+.SpotifyPlaylist {
+	margin-left: -1%;
+	width: -30%;
+	height: -10%;
+}
+}
+
+/*********** Contact ******/
+
+@media all and (max-width: 480px) /*DONE*/ {
+.Details h3 { /*SORT OUT*/
+	display: none;
+}
+#contact {
+	width: 90%;
+	margin-top: 10%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 8%;
+}
+#SocailMedia {
+	margin: 10%;
+	padding-bottom: 10%;
+}
+.facebook {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+.twitter {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+.youtube {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+.instagram {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+.spotify {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+#SocailMedia p {
+	font-family: 'Gloria Hallelujah', cursive;
+}
+#FooterSign {
+	display: none;
+}
+}
+
+@media all and (max-width: 600px) {
+.Details h3 { /*SORT OUT*/
+	display: none;
+}
+#contact {
+	width: 90%;
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 8%;
+}
+#SocailMedia {
+	margin: 10%;
+	padding-bottom: 10%;
+}
+#SocailMedia p {
+	background-color: green;
+}
+.facebook {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+.twitter {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+.youtube {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+.instagram {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+.spotify {
+	display: inline;
+	width: 40%;
+	padding: 5px;
+	font-size: 20px;
+	margin: 3%;
+	border-radius: 2%;
+	margin-left: 10px;
+}
+#SocailMedia p {
+	font-family: 'Gloria Hallelujah', cursive;
+}
+#FooterSign {
+	display: none;
+}
+}
