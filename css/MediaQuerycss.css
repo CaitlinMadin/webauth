@@ -313,9 +313,8 @@ h1 {
 /*
 *********** Videos ******/
 @media all and (max-width: 600px) {
-.Title h2 {
-	background-color: aqua;
-}
+
+
 #socail {
 	display: none;
 }
@@ -347,7 +346,6 @@ Line2New {
 
 @media all and (max-width: 480px) /*DONE*/ {
 .Title h2 {
-	background-color: red;
 	font-family: 'Gloria Hallelujah', cursive;
 	margin-left: 45%;
 	font-size: 20px;
