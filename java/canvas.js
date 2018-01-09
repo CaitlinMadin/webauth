@@ -17,7 +17,7 @@ var mousePressed= false;
 //var selWidth;
 
 function init(){
-	console.log("moo!");
+	console.log("CRAP");
 	
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext("2d");//draw
