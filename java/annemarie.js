@@ -11,6 +11,7 @@ typeWriter();
 allowDrop();
 	drop();
 	drag();
+localStorage();
 
 
 
@@ -82,27 +83,32 @@ function drop(ev) {
    ctx.drawImage(img,0,0,1600,800); // MAKES IMAGE size of canvas
 	// ev.target.appendChild(document.getElementById(data)); //The dragged data is the id of the dragged element
 }
-function localStorage() {
-
-  // Check for LocalStorage support.
-  if (LocalStorage) {
-
-    // Add an event listener for form submissions
-    document.getElementById('Contact').addEventListener('contact-submit', function() {
+	  function localStorage() {
       // Get the value of the name field.
-      var name = document.getElementById('name').value;
-		var mail = document.getElementById('mail').value;
-		var msg = document.getElementById('msg').value;
+		  console.log("moo!")
+		  document.getElementById('contact-submit').addEventListener('onclick', localStorage);
+      var Storname = document.getElementById('#name').value;
+		var Stormail = document.getElementById('#mail').value;
+		var Stormsg = document.getElementById('#msg').value;
 
       // Save the name in localStorage.
-      localStorage.setItem('name', name);
-		localStorage.setItem('mail', mail);
-		localStorage.setItem('msg',msg);
-    });
-
-  }
-
+      localStorage.setItem('name', Storname);
+		localStorage.setItem('mail', Stormail);
+		localStorage.setItem('msg',Stormsg);
+		  $("#name,#mail,#msg").on('change keypress paste focus textInput input',localStorage);
+	  }
+function retrievedata(){
+	console.log("moo!");
+ var storName = localStorage.getItem("#name");
+ var storEmail = localStorage.getItem("#mail");
+ var storMessage = localStorage.getItem("#msg");
+ $("#name").val(storName);
+ $("#email").val(storEmail);
+ $("#msg").val(storMessage);
 }
+  
+retrievedata();
+
 $('#SaveButton').click( function() {
    var Album = $('#canvas').val();
   if($("#canvas").val() === '') {

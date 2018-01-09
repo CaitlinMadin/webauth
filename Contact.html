@@ -89,4 +89,20 @@
 		</section>
 	
 </body>
+<script>
+ function localStorage() {
+      // Get the value of the name field.
+		  console.log("moo!")
+		  document.getElementById('contact-submit').addEventListener('onclick', localStorage);
+      var Storname = document.getElementById('#name').value;
+		var Stormail = document.getElementById('#mail').value;
+		var Stormsg = document.getElementById('#msg').value;
+
+      // Save the name in localStorage.
+      localStorage.setItem('name', Storname);
+		localStorage.setItem('mail', Stormail);
+		localStorage.setItem('msg',Stormsg);
+		  $("#name,#mail,#msg").on('change keypress paste focus textInput input',localStorage);
+	  }
+	</script>
 </html>
