@@ -32,6 +32,7 @@ function retrievedata() {
     document.getElementById('Favourite').selectedIndex = storFav;
 }
 
+/************* input feild style***************/
 $(document).ready(function(){
     $("input").focus(function(){
         $(this).css("background-color", "#ef8de9");
