@@ -82,7 +82,27 @@ function drop(ev) {
    ctx.drawImage(img,0,0,1600,800); // MAKES IMAGE size of canvas
 	// ev.target.appendChild(document.getElementById(data)); //The dragged data is the id of the dragged element
 }
+function localStorage() {
 
+  // Check for LocalStorage support.
+  if (LocalStorage) {
+
+    // Add an event listener for form submissions
+    document.getElementById('Contact').addEventListener('contact-submit', function() {
+      // Get the value of the name field.
+      var name = document.getElementById('name').value;
+		var mail = document.getElementById('mail').value;
+		var msg = document.getElementById('msg').value;
+
+      // Save the name in localStorage.
+      localStorage.setItem('name', name);
+		localStorage.setItem('mail', mail);
+		localStorage.setItem('msg',msg);
+    });
+
+  }
+
+}
 $('#SaveButton').click( function() {
    var Album = $('#canvas').val();
   if($("#canvas").val() === '') {
@@ -92,6 +112,7 @@ $('#SaveButton').click( function() {
    }
  
 });
+
 
 if(localStorage && localStorage.getItem('canvas')) {
 $('#canvas').html(localStorage.getItem('canvas'));
