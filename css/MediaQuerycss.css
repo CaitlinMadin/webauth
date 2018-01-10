@@ -14,10 +14,9 @@
 @media only screen and (Max-width: 600px)
 {
 	.MainMobileImage
-	{ 
-		
+	{ 	
 		position:static;
-		background-image:url(file:///C:/Users/madin/Desktop/git/webauth/assests/AnneMarieMobile.JPG)
+		background-image:url(file:///C:/Users/madin/Desktop/git/webauth/assests/AnneMarieMobile.JPG);
 		width:auto;
 		height:auto;
 	}
@@ -93,7 +92,6 @@
 	
 	.MainMobileImage
 	{ 
-		
 		width:460px;
 		
 	}
