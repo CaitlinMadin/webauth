@@ -17,7 +17,7 @@
 	{ 
 		background-color:red;
 		position:static;
-		background-image:url(file:///C:/Users/madin/Desktop/git/webauth/assests/MobileMainImage%20-%20Copy.png);
+		background-image:url(file:///C:/Users/madin/Desktop/git/webauth/assests/AnneMarieMobile.JPG)
 		width:auto;
 		height:auto;
 	}
@@ -364,6 +364,9 @@ Line2New {
 	margin-left: 45%;
 	font-size: 20px;
 }
+	.html5gallery 
+	{ margin-left:20%;
+	}
 #socail {
 	display: none;
 }
@@ -387,6 +390,11 @@ Line2New {
 	margin-left: -1%;
 	width: -30%;
 	height: -10%;
+}
+	.html5gallery img {
+	margin-left:0%;
+	width: 300px;
+	height: 300px;
 }
 }
 
