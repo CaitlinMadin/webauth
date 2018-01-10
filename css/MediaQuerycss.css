@@ -3,73 +3,108 @@
 /* CSS Document */
 /****MAIN*****/
 /*********************************MEDIA FOR TABLET MAIN PAGE **************************/
-
-@media all and (max-width: 480px) /*******************FOR MOBILE**************/ {
-.StandardDesign {
-	display: none;
+@media only screen and (min-width: 490px)
+{
+.MobileResponsive nav
+{display:none;
+	}
+	.MobileResponsive
+{color:white;}
 }
-.animate span {
-	font-size: 40px;
-	margin: 20px 0 0;
-	background-color: blue;
-}
-.flamingoMain {
-	display: none;
-}
-.dropdown img {
-	display: inline-block;
-	margin-left: 40%;
-	margin-bottom: 0%;
-}
-.dropdown-content {
-	display: inline;
-	position: absolute;
-	background-color: deeppink;
-	opacity: 0.7%;
-	width: auto;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	padding: 12px 16px;
-	z-index: 1;
-}
-.dropdown:hover .dropdown-content {
-	display: block;
-	width: 135%;
-	height: 300%;
-}
-.dropdown-content a {
-	display: inline-block;
-	color: white;
-	border-bottom: thick;
-	border-bottom-color: white;
-	text-decoration: none;
+@media only screen and (Max-width: 600px)
+{
+	.MainMobileImage
+	{ 
+		background-color:red;
+		position:static;
+		background-image:url(file:///C:/Users/madin/Desktop/git/webauth/assests/MobileMainImage%20-%20Copy.png);
+		width:auto;
+		height:auto;
+	}
+	.MobileResponsive h2
+{ display:flex;
+	color:deeppink;
+	font-size:50px;
+	margin-top:0%;
+	padding-left:20%;
+	text-align:center;
 	font-family: 'Gloria Hallelujah', cursive;
-	font-size: 20px;
+	}
+	.MobileResponsive nav
+	{font-family: 'Gloria Hallelujah', cursive;
+		float:left;
+		display:block;
+		width:25%;
+		
+	}
+
+.MobileResponsive a{
+	text-decoration:none;
+	padding: 5%;
+	
+	margin-left:0%;
+	color:#67fcf4;
+	font-size: 30px;
+	
+
 }
-.subnews h3 {
-	font-size: 18px;
+	.MobileResponsive a:hover {background-color: #F1FF89;}
+
+	footer a
+	{
+		color:#9E94DF;
+		text-decoration: none;
+		font-size: 12px;
+	}
+	footer{
+		margin-top:98%;
+	}
+	.heart
+	{display:none;}
+	.subnews h3
+	
+	{ display:none;
+	}
+	.MainBox
+	{
+		display:none;
+	}
+	.MainBox1
+	{
+		display:none;
+	}
+	.animate
+	{display:none;
+	}
+	.container
+	{
+		display:none;
+	}
+	#socail .fa
+{display:none;
+	}
+	.StandardDesign
+	{
+		display:none;
+	}
+	
 }
-.MainBox  /*blue line*/ {
-	padding: 0%;
-	margin-left: 4px;
-	height: 3px;
-	width: 10%;
-}
-.MainBox1  /*blue line*/ {
-	padding-left: 0%;
-	margin-left: 100%;
-	height: 3px;
-	width: 10%;
-}
-#FooterMain {
-	margin: 2px;
-	margin-left: 2%;
-	padding: 2px;
-	text-decoration: none;
-}
-#FooterMain a {
-	font-size: 10px;
-	text-decoration: none;
-}
+@media only screen and (max-width: 480px){
+	
+	.MainMobileImage
+	{ 
+		
+		width:460px;
+		
+	}
+	footer{
+		margin-top:118%;
+	}
+
+	
+	
+	.MobileResponsive a:hover {background-color: #F1FF89;}
+
 }
 
 /************ Tour ******/
@@ -126,7 +161,7 @@
 }
 }
 
-/************ about *******/
+/************ News *******/
 @media only screen and (Max-width: 600px) {
 .animateTwo span {
 	font-size: 50px;
@@ -149,22 +184,15 @@
 	height: 1%;
 }
 /********NOT WORKING********/
-.typewriter h1 { /*https://codepen.io/rusjames/pen/uAFhE*/
-	color: dimgray;
-	font-family: 'Gloria Hallelujah', cursive;
-	font-size: 20px;
-	width: 20%;
-	animation: type 4s steps(60, end);
-	margin-left: 10%;
-}
-.typewriter h1:nth-child(2) {
-	animation: type2 8s steps(60, end);
-}
+.typewriter h1 { display:none;
 }
 
-@media all and (max-width: 480px) {
+}
+
+@media all and (max-width: 380px) {
 .animateTwo span {
-	font-size: 50px;
+	background-color:black;
+	font-size: 40px;
 	margin: 20px 0 0;
 }
 .animateTwo {
@@ -186,21 +214,7 @@
 #SocailTour .fa {
 	display: block;
 }
-.typewriter h1 { /*https://codepen.io/rusjames/pen/uAFhE*/
-	position: static;
-	align-content: center;
-	color: dimgray;
-	font-family: 'Gloria Hallelujah', cursive;
-	font-size: 80px;
-	white-space: nowrap;
-	overflow: hidden;
-	width: 85%;
-	animation: type 4s steps(60, end);
-	margin-left: 10%;
-}
-.typewriter h1:nth-child(2) {
-	animation: type2 8s steps(60, end);
-}
+
 }
 
 /*********** Merch ******/
@@ -272,8 +286,8 @@ h1 {
 @media all and (max-width: 480px) {
 .animateMerch span {
 	font-size: 40px;
-	margin: 20px 0 0;
 }
+	
 .SpotifyPlaylistMerchMobile {
 	display: block;
 	font-family: 'Gloria Hallelujah', cursive;
@@ -376,81 +390,16 @@ Line2New {
 }
 }
 
-/*********** Contact ******/
-
-@media all and (max-width: 480px) /*DONE*/ {
-.Details h3 { /*SORT OUT*/
-	display: none;
-}
-#contact {
-	width: 90%;
-	margin-top: 10%;
-	margin-left: 2%;
-	margin-right: 2%;
-	margin-bottom: 8%;
-}
-#SocailMedia {
-	margin: 10%;
-	padding-bottom: 10%;
-}
-.facebook {
-	display: inline;
-	width: 40%;
-	padding: 5px;
-	font-size: 20px;
-	margin: 3%;
-	border-radius: 2%;
-	margin-left: 10px;
-}
-.twitter {
-	display: inline;
-	width: 40%;
-	padding: 5px;
-	font-size: 20px;
-	margin: 3%;
-	border-radius: 2%;
-	margin-left: 10px;
-}
-.youtube {
-	display: inline;
-	width: 40%;
-	padding: 5px;
-	font-size: 20px;
-	margin: 3%;
-	border-radius: 2%;
-	margin-left: 10px;
-}
-.instagram {
-	display: inline;
-	width: 40%;
-	padding: 5px;
-	font-size: 20px;
-	margin: 3%;
-	border-radius: 2%;
-	margin-left: 10px;
-}
-.spotify {
-	display: inline;
-	width: 40%;
-	padding: 5px;
-	font-size: 20px;
-	margin: 3%;
-	border-radius: 2%;
-	margin-left: 10px;
-}
-#SocailMedia p {
-	font-family: 'Gloria Hallelujah', cursive;
-}
-#FooterSign {
-	display: none;
-}
-}
-
+/*********** Sign Up******/
 @media all and (max-width: 600px) {
-.Details h3 { /*SORT OUT*/
-	display: none;
+	.Details
+{
+	margin-left: 10%;
+	font-size: 15px;
+	color:dimgray;
 }
-#contact {
+
+#Contact {
 	width: 90%;
 	margin-top: 2%;
 	margin-left: 2%;

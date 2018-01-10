@@ -13,9 +13,7 @@ body {
   position: relative;
   width: 70%;
 	background-color: white;
-	margin-left:10%;
-	
-	
+	margin-left:10%;	
 }
 
 
@@ -59,10 +57,8 @@ margin-left:5%;
 	transform: translate(-50%, -50%);
 }
 
-.dropdown
-{
-	display:none;
-}
+
+
 #socail
 {
 	
@@ -141,7 +137,7 @@ padding: 30px;
 	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
     font-size: 100px;
    text-align: center;
-	
+	background-color:red;
 	width:auto;
 	height:auto;
 	
@@ -253,6 +249,8 @@ background-color: white;
 	margin-left: 40%;
 		padding:20px;
 	perspective-origin: bottom;	
+	text-decoration:none;
+	text-decoration-line: none;
 		
 	}
 
@@ -260,12 +258,12 @@ background-color: white;
 {
 	font-size: 14px;
 	text-decoration:none;
+	text-decoration-line: none;
 	border:none;
 	color: dimgray;
 	align-content: center;
 }
-#SocailFooter
-{display:none;}
+
 
 .heart
 {
@@ -278,9 +276,6 @@ background-color: white;
 }
 .container2
 {display:none;}
-
-
-
 
 
 /*/////////////////////////////Tour\\\\\\\\\\\\\\\\\\\\\\*/
@@ -375,7 +370,8 @@ margin: 0px;
 
 
 
-/*////////////////////Contact\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+/*////////////////////SignUp\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
 
 .Details
 {
@@ -878,6 +874,7 @@ background-color: white;
 	position: fixed;
 	
 }
+
 .animateHover1
 {
 	width:8%;
