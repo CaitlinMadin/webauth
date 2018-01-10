@@ -19,19 +19,30 @@
 {
 	.imageContainer{
 		background-color: black;
+		width:100%;
 	}
+	/*.imageContainer h2
+	{
+		position:relative;
+		color:#FFC0CB;
+		font-family: 'Gloria Hallelujah', cursive;
+		margin-left:12%;
+		margin-bottom:0%;
+		background-color:black;
+	}*/
 	.MainMobileImage
 	{ 	
 	
 		position: absolute;
 		background-image:url(file:///C:/Users/madin/Desktop/git/webauth/assests/AnneMarieMobile.JPG);
-		margin-top:20%;
+		margin-top:25%;
 		width:100%;
 		height:85%;
 	}
+	
 	.MobileResponsive h2
 { background-color: black;
-	position: relative;
+	position:relative;
 	display:flex;
 	color:deeppink;
 	font-size:50px;
@@ -44,10 +55,11 @@
 	.MobileResponsive nav
 	{z-index: 3;
 		position:absolute;
-		font-family: 'Gloria Hallelujah', cursive;
-		float:left;
+		 font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+		margin-left:0%;
+		font-size:50px;
 		display:block;
-		width:25%;
+		width:30%;
 		
 	}
 
@@ -63,15 +75,7 @@
 }
 	.MobileResponsive a:hover {background-color: #F1FF89;}
 
-	footer a
-	{
-		color:#9E94DF;
-		text-decoration: none;
-		font-size: 12px;
-	}
-	footer{
-		margin-top:98%;
-	}
+
 	.heart
 	{display:none;}
 	.subnews h3
@@ -94,7 +98,16 @@
 		display:none;
 	}
 	#socail .fa
-{display:none;
+{
+	display:inline-block;
+	
+	}
+	#socail{
+		margin-top:55%;
+		margin-left:80%;
+	display:inline-block;
+		width:80%;
+	
 	}
 	.StandardDesign
 	{
