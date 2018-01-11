@@ -1340,6 +1340,7 @@ header h3
 .logLine
 {
 	width:60%;
+	margin-top:5%;
 	margin-left:20%;
 	padding:2px;
 	background-color: #9E94DF;
@@ -1369,3 +1370,38 @@ margin:4%;
 .Interoperability img
 {margin-left:20%;
 }
+.BrowersSupport h3
+{
+text-decoration: underline;
+	color:#67fcf4;
+	margin-left:40%;	
+}
+.FileOrg h3
+{text-decoration: underline;
+	color:#67fcf4;
+	margin-left:40%;	
+	
+}
+.FileOrg p
+{
+	color:dimgray;
+margin:4%;
+}
+.FileOrg img
+{margin-left:25%;
+	
+}
+
+.W3C h3
+{text-decoration: underline;
+	color:#67fcf4;
+	margin-left:40%;	
+	
+}
+.W3C p
+{
+	color:dimgray;
+margin:4%;
+}
+.W3C img
+{margin-left:25%;}
