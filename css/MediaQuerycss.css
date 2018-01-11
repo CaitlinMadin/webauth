@@ -141,8 +141,8 @@
 	font-size: 50px;
 }
 .stack {
-	font-size: 8em;
-	padding-top: 42%;
+	font-size: 6em;
+	padding-top: 50%;
 	padding-left: 75%;
 }
 .tourcontainer {
@@ -165,7 +165,7 @@
 {
 .stack {
 	font-size: 5em;
-	padding-top: 50%;
+	padding-top: 60%;
 	padding-left: 80%;
 }
 .flamingobackground {
@@ -208,13 +208,9 @@
 	width: 10%;
 	height: 1%;
 }
-/********NOT WORKING********/
-.typewriter h1 { display:none;
 }
 
-}
-
-@media all and (max-width: 380px) {
+@media all and (max-width: 480px) {
 .animateTwo span {
 	background-color:black;
 	font-size: 40px;
