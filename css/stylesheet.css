@@ -1329,3 +1329,43 @@ margin-left:45%;
 	display:none;
 }
 
+/*********************LOG #F1FF89 #FFC0CB #67fcf4 deeppink***************************/
+header h3
+{
+	color:deeppink;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 40px;
+	margin-left:40%;
+}
+.logLine
+{
+	width:60%;
+	margin-left:20%;
+	padding:2px;
+	background-color: #9E94DF;
+}
+.WebStandard h3
+{
+	text-decoration: underline;
+	color:#FFC0CB;
+	margin-left:35%;
+}
+
+
+.WebStandard p
+{color:dimgray;
+margin:4%;}
+
+.Interoperability h3
+{text-decoration: underline;
+	color:#67fcf4;
+	margin-left:40%;
+}
+.Interoperability p
+{color:dimgray;
+margin:4%;
+}
+
+.Interoperability img
+{margin-left:20%;
+}
