@@ -21,7 +21,7 @@ function submit() {
     //$("#name,#mail,#msg").on('change keypress paste focus textInput input', localStorage);
 }
 function retrievedata() {
-    console.log("moo!");
+    console.log("Working!");
     var storName = localStorage.getItem("name");
     var storEmail = localStorage.getItem("mail");
     var storMessage = localStorage.getItem("msg");
